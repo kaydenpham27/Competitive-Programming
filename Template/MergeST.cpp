@@ -4,7 +4,7 @@ struct MergeTree {
   vector<int> Combine(vector<int> lf, vector<int> rg) {
     vector<int> res;
     merge(all(lf), all(rg), back_inserter(res));
-    res.erase(unique(all(res)), res.end());
+    res.erase(unique(all(res)), res.end());    
     return res;
   }
   void Build(int id, int l, int r) {
@@ -15,7 +15,7 @@ struct MergeTree {
     int mid = (l + r)/2;
     Build(id * 2, l, mid);
     Build(id * 2 + 1, mid + 1, r);
-    merge(all(st[id * 2]), all(st[id * 2 + 1]), back_inserter(st[id]));
+    st[id] = Combine(st[id * 2], st[id * 2 + 1]);
   }
   vector<int> Get(int id, int l, int r, int u, int v) {
     if (v < l || u > r) return {};
