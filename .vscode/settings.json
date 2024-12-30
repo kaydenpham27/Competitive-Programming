@@ -1,0 +1,23 @@
+{
+  "files.associations": {
+    "span": "cpp",
+    "type_traits": "cpp",
+    "array": "cpp",
+    "deque": "cpp",
+    "forward_list": "cpp",
+    "list": "cpp",
+    "string": "cpp",
+    "unordered_map": "cpp",
+    "unordered_set": "cpp",
+    "vector": "cpp",
+    "string_view": "cpp",
+    "initializer_list": "cpp",
+    "ranges": "cpp",
+    "regex": "cpp",
+    "valarray": "cpp",
+    "iostream": "cpp",
+    "chrono": "cpp",
+    "climits": "cpp",
+    "iomanip": "cpp"
+  }
+}
