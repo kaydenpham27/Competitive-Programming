@@ -19,5 +19,11 @@
     "chrono": "cpp",
     "climits": "cpp",
     "iomanip": "cpp"
-  }
+  },
+  "[cpp]": {
+        "editor.fontFamily": "'Menlo', 'Monaco', 'Consolas', 'Courier New', monospace",
+        "editor.fontSize": 14,
+        "editor.lineHeight": 20
+    },
+  "editor.fontFamily": "'Menlo', 'Monaco', 'Courier New', monospace"
 }

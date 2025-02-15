@@ -16,51 +16,50 @@ const int MOD = 998244353;
 const i64 INF = LLONG_MIN/2;
 
 void Solve(void) {
-  int N, A, B; cin >> N >> B >> A;
-  vector<vector<char>> g(N, vector<char>(N));
+  int N; cin >> N;
+  vector<int> a(N), b(N), pref(N, 0);
+  for (auto &x : a) cin >> x;
+  for (auto &x : b) cin >> x;
+
+  vector<vector<int>> pa(N + 1), pb(N + 1);
   for (int i = 0; i < N; i ++) {
-    for (int j = 0; j < N; j ++) {
-      cin >> g[i][j];
+    pa[a[i]].pb(i + 1);
+    pb[b[i]].pb(i + 1);
+    pref[i] = (i ? pref[i - 1] : 0);
+    pref[i] += (a[i] == b[i]);
+  }
+  vector<vector<i64>> prefa(N + 1), prefb(N + 1);
+  for (int i = 1; i <= N; i ++) {
+    int sz = pa[i].size();
+    prefa[i].resize(sz);
+    for (int j = 0; j < sz; j ++) {
+      prefa[i][j] = (j ? prefa[i][j - 1] : 0);
+      prefa[i][j] += pa[i][j] + ;
+    }
+    sz = pb[i].size();
+    prefb[i].resize(sz);
+    for (int j = 0; j < sz; j ++) {
+      prefb[i][j] = (j ? prefb[i][j - 1] : 0);
+      prefb[i][j] += pb[i][j] + 1;
     }
   }
 
-  vector<vector<bool>> marked(N, vector<bool> (N, false));
+  i64 ans = 0;
   for (int i = 0; i < N; i ++) {
-    for (int j = 0; j < N; j ++) {
-      if (g[i][j] == 'B') {
-        if (i >= A && j >= B) {
-          if (g[i - A][j - B] == 'W') {
-            cout << -1 << "\n";
-            return;
-          }
-          marked[i - A][j - B] = true;
-          marked[i][j] = true;
-        } else {
-          cout << -1 << "\n";
-          return;
-        }
-      } else if (g[i][j] == 'G') {
-        if (i >= A && j >= B) {
-          if (!marked[i - A][j - B]) marked[i][j] = true;
-        } else {
-          marked[i][j] = true;
-        }
-      }
-    }
+    int x = min(i + 1, N - i);
+    int p = upper_bound(all(pb[a[i]]), x) - pb[a[i]].begin() - 1;
+    int pp = upper_bound(all(pb[a[i]]), i + 1) - pb[a[i]].begin() - 1;
+    // cout << i << " " << p << " " << pp << "\n";
+    if (p >= 0) ans += prefb[a[i]][p];
+    ans += (pp - p) * (N - i);
   }
 
-  int ans = 0;
-  for (int i = 0; i < N; i ++) {
-    for (int j = 0; j < N; j ++) {
-      ans += marked[i][j];
-    }
-  }
   cout << ans << "\n";
 }
 signed main() {
   ios_base::sync_with_stdio(false); cin.tie(0);
   cout << fixed << setprecision(10);
-  int Tests = 1; cin >> Tests;    
+  int Tests = 1; // cin >> Tests;    
   for (int i = 1; i <= Tests; i ++) {
     // cout << "Case " << i << ": ";
     Solve();    
