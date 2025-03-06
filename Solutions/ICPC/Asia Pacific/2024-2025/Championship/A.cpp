@@ -16,11 +16,6 @@ const int MOD = 998244353;
 const i64 INF = LLONG_MIN/2;
 
 void Solve(void) {
-  int N; cin >> N;
-  vector<pair<int, int>> segs(N);
-  for (int i = 0; i < N; i ++) cin >> segs[i].first >> segs[i].second;
-  sort(all(segs));
-
   
 }
 signed main() {
