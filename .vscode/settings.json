@@ -19,7 +19,9 @@
     "chrono": "cpp",
     "climits": "cpp",
     "iomanip": "cpp",
-    "xutility": "cpp"
+    "xutility": "cpp",
+    "xiosbase": "cpp",
+    "xstring": "cpp"
   },
   "[cpp]": {
         "editor.fontFamily": "'Menlo', 'Monaco', 'Consolas', 'Courier New', monospace",
