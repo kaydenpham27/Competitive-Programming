@@ -18,7 +18,8 @@
     "iostream": "cpp",
     "chrono": "cpp",
     "climits": "cpp",
-    "iomanip": "cpp"
+    "iomanip": "cpp",
+    "xutility": "cpp"
   },
   "[cpp]": {
         "editor.fontFamily": "'Menlo', 'Monaco', 'Consolas', 'Courier New', monospace",
