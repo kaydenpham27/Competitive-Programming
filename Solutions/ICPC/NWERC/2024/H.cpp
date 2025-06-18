@@ -42,16 +42,16 @@ void Solve(void) {
     G[v].pb(mp(u, w));
   }
 
+  Dijk(0, 1);
+  Dijk(1, N);
+  
   for (int i = 1; i <= K; i ++) {
     int u;
     cin >> u >> p[u];
+
   }
 
-  Dijk(0, 1);
-  Dijk(1, N);
-
-  cout << f[0][4] << " " << f[0][5] << "\n";
-  cout << f[1][1] << " " << f[1][3] << "\n";
+  
 }
 signed main() {
   ios_base::sync_with_stdio(false); cin.tie(0);
