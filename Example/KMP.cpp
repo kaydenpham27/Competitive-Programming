@@ -36,7 +36,8 @@ void Solve(void) {
   kmp(S, 1);
 
   // Automation to avoid amortised property of while loop in KMP
-  // aut[i][c] = i if s[i] = c else aut[p[i - 1]][c]
+  // Similar to a finate state machine, where aut(i, c) indicates that number of characters 
+  // has been matched from the start of the string (similar to prefl of KMP)
   for (int i = 0; i < N; i ++) {
     for (int c = 0; c < 26; c ++) {
       if (i > 0 && S[i] - 'a' != c) {
